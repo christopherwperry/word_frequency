@@ -16,15 +16,21 @@ class Wordfreq
 
   def frequencies
     @word_hash = {}
-    @word_array.each do |words|
-      if STOP_WORDS.include? words
-
-      elsif @word_hash[words] == nil
-        @word_hash[words] = 1
+    @word_array.each do |word|
+      if STOP_WORDS.include? word
       else
-        @word_hash[words] += 1
+        @word_hash[word] = frequency(word)
       end
     end
+    # @word_array.each do |word|
+    #   if STOP_WORDS.include? word
+    #
+    #   elsif @word_hash[word] == nil
+    #     @word_hash[word] = 1
+    #   else
+    #     @word_hash[word] += 1
+    #   end
+    # end
     @word_hash
   end
 
